@@ -1,0 +1,12 @@
+---
+layout: post
+title: Ctrl + Shift + 3
+date: '2015-06-08 21:57:00'
+tags:
+- cs50
+- linux
+---
+
+Trying to program inside the CS50 virtual machine is painful when you can't find the hash key. I'm not the only one. Happiness is relative.
+
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://frny.uk/70m" class="kg-image" alt="Ctrl Shift 3"><figcaption>Ctrl + Shift + 3</figcaption></figure>

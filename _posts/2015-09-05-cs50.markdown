@@ -1,0 +1,35 @@
+---
+layout: post
+title: CS50
+date: '2015-09-05 14:41:51'
+tags:
+- cs50
+- courses
+- programming
+---
+
+I started taking Harvard's [CS50](https://cs50.harvard.edu/) Intro to Computing course when it cropped up in the middle of [FreeCodeCamp](http://www.freecodecamp.com/)'s JavaScript programmer's course.
+
+CS50 appears to be a fairly infamous course with several routes to take it including on campus and also via [edX](https://www.edx.org/) (known as [CS50x](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x)).
+
+## Progress
+
+I've so far completed 7 of the 8 problem sets with just the last remaining pset and the final project to go. Lectures are an easy watch and plenty of extra information available in the "Shorts" they provide alongside, recorded over the past few years by the TFs or students.
+
+## Handy links
+Homepage on harvard.edu: https://cs50.harvard.edu/
+Homepage on edX: https://courses.edx.org/courses/HarvardX/CS50x3/2015/
+Homepage on cs50.tv: http://cs50.tv/
+
+### Resources
+Sections: https://cs50.harvard.edu/sections.html
+Shorts: http://cs50.tv/2014/fall/#about,shorts
+Study (slides, problems, shorts organised by topic): https://study.cs50.net/
+Seminars (for final project ideas): https://manual.cs50.net/seminars/
+Tricks (mostly PHP): https://manual.cs50.net/tricks/
+
+### Forums
+Stack Exchange: http://cs50.stackexchange.com/
+Google Groups: https://groups.google.com/forum/?fromgroups#!forum/cs50-discuss
+Slack: https://cs50x.slack.com/
+Reddit: https://www.reddit.com/r/cs50

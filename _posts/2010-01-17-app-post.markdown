@@ -1,0 +1,16 @@
+---
+layout: post
+title: App
+date: '2010-01-17 13:55:21'
+---
+
+
+[My first iPhone App](http://developer.apple.com/iphone/library/documentation/iPhone/Conceptual/iPhone101/Articles/00_Introduction.html#//apple_ref/doc/uid/TP40007514-CH1-SW1).  
+ But in the introduction to that I am referred to:
+
+- [Learning Objective C-: A Primer](http://developer.apple.com/iphone/library/referencelibrary/GettingStarted/Learning_Objective-C_A_Primer/index.html#//apple_ref/doc/uid/TP40007594) – brief one pager on the syntax
+- [Cocoa Fundamentals Guide](http://developer.apple.com/iphone/library/documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html) (particularly the Design Patterns bit) – toread
+- [Object-Oriented Programming with Objective-C](http://developer.apple.com/iphone/library/documentation/Cocoa/Conceptual/OOP_ObjC/Introduction/Introduction.html) – toread
+- [The Objective-C Programming Language](http://developer.apple.com/iphone/library/documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html) – toread
+
+

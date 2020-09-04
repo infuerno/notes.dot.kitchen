@@ -1,0 +1,15 @@
+---
+layout: post
+title: Text WiFi to 2121
+date: '2010-01-10 13:42:10'
+---
+
+
+Still having problems with accessing the WiFi hotspots from my iPhone since either
+
+1. I changed my number (from my old orange phone)
+2. I changed my handset (from the one I frazzled the baseband on trying to use blackra1n)
+
+Everytime I get a completely different answer from o2. The first time someone told me he’d reset things since the MAC address needed to be in sync with their records and to give it a couple of hours. That didn’t make any difference. Next time, I was just told I had to go onto the website from a computer rather than my phone and register properly again. That didn’t make any difference – I was already registered, and putting my phone number in just got up the same old ‘Not Authorized’ message. This time I was told to text WiFi to 2121 and also that something hadn’t been enabled on my account and to give it 24 hours. Let’s hope I don’t have to ring back and get yet another version of steps to try….
+
+

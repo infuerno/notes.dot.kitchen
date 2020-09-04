@@ -1,0 +1,10 @@
+---
+layout: post
+title: TFS 2010
+date: '2013-06-09 23:11:00'
+---
+
+When mapping workspaces there are two options: Active and Cloaked. Cloaked hides directories.
+Double click on Source Control at the bottom of the project node in Team Explorer to open Source Control Explorer
+Click on the local path at the top of the Source Control Explorer to go directly to that folder in windows explorer
+What is the "Workspace version" option in Get in TFS?

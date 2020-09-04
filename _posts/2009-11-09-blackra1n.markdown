@@ -1,0 +1,36 @@
+---
+layout: post
+title: blackra1n
+date: '2009-11-09 23:41:38'
+tags:
+- iphone
+- technology
+---
+
+
+Jailbroke and unlocked iphone with Blackra1n successfully.  
+ Was fine for about a day. That evening plugged into macbook to recharge – maybe blackra1n was still running – message that there was a problem and needed to restore – could only make emergency calls and no carrier message.  
+ After a bit of messing around, managed to reboot with the help of blackra1n. All ok again. Again a while later noticed that there was this message again. Couldn’t seem to get it back again, but was getting a bit fed up, so decided to restore back to factory settings.  
+ When trying to restore back got error 1013 right at the end of the restore firmware bit.  
+ Tried again, same problem.  
+ Rebooted, tried again, same problem.  
+ Downloaded fresh copy of the .ipsw file and tried to restore with that – same problem.  
+ iPhone now only showed the connect screen and wouldn’t do anything else.  
+ Finally ran blackra1n and got the parts of the phone back again – i.e. applications. But no wifi, no phone, in the settings, no IMEI, CCID numbers, no baseband information.  
+ Tried restoring, blackra1n etc, but no joy.  
+ Download Pwnage Tool 3.1.4 and created a custom .ipsw using the quick mode and no activation.  
+ Error 1604 in recovery mode.  
+ Error 1600 in dfu mode.  
+ Tried in normal mode and this time restored fine. But still no wifi, no IMEI, CCID etc.  
+ Built another .ipsw using the expert settings. This time no Cydia, no Icy, no boot logos (though I saw these when it was restoring so that was a bit strange), no activation.  
+ Restored with this – it worked and got emergency calls again. Info window showed IMEI and CCID numbers.  
+ When I opened iTunes it said there was something wrong with the phone and to take it to the apple shop – no option to recover etc.  
+ Put phone into DFU mode and restarted iTunes – now got option to restore.  
+ Restored from the default .ipsw it had, worked fine, restarted EVERYTHING BACK TO NORMAL.
+
+PHEEEEEWWWWWWWW.
+
+Some great instructions here – may follow this next time – looks a little more controlled:  
+[http://www.hackthatphone.com/3x/p_3_1_2_3gs.html](http://www.hackthatphone.com/3x/p_3_1_2_3gs.html)
+
+

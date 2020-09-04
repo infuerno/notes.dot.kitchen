@@ -1,0 +1,70 @@
+---
+layout: post
+title: Markdown and the Ghost editor
+date: '2017-10-14 21:45:25'
+tags:
+- ghost-tag
+---
+
+At the bottom of the editor, there is a toolbar with basic formatting options. The **?** icon contains more advanced shortcuts.
+
+## Formatting text
+
+* `CMD/Ctrl + B` for Bold
+* `CMD/Ctrl + I` for Italic
+* `CMD/Ctrl + K` for a Link
+* `CMD/Ctrl + H` for a Heading (Press multiple times for h2/h3/h4/etc)
+
+## Inserting images
+
+Images in Markdown are the same as links but prefixed with an exclamation mark:
+`![Image description](/path/to/image.jpg)`
+
+![Computer](https://casper.ghost.org/v1.0.0/images/computer.jpg)
+
+Click on the image icon in the toolbar at the bottom of the editor, or click and drag an image from the desktop directly into the editor. Both will upload the image for you and generate the appropriate Markdown.
+
+## Dividers
+
+Use `---` to create a divider:
+
+---
+
+# Organising content
+
+Ghost has a single, powerful organisational taxonomy, called tags. By tagging posts with one or more keyword, you can organise articles into buckets of related content.
+
+## Basic tagging
+
+Assign tags to help differentiate between categories of content. For example, tag some posts with `news` and other posts with `cycling` to create two distinct categories of content listed on `/tag/news/` and `/tag/cycling/`, respectively.
+
+==news, cycling==
+
+## The primary tag
+
+Inside the Ghost editor, tags can be dragged and dropped into a specific order. The first tag in the list is always given the most importance, and some themes will only display the primary tag (the first tag in the list) by default. 
+
+==**news**, cycling==
+## Private tags
+
+Private tags are created using a `#` e.g. `#video` and allow assigning a post a specific tag which can be used for special styling. For example, posts with video content may be displayed differently to give more space for embedded videos to fill the screen.
+
+`==**news**, cycling, #video==`
+
+Here, the theme would assign the post publicly displayed tags of `news`, and `cycling` - but it would also keep a private record of the post being tagged with `#video`.
+
+The theme could then look for private tags conditionally and use special formatting:
+
+{% raw %}
+```
+{{#post}}
+    {{#has tag="#video"}}
+        ...markup for a nice big video post layout...
+    {{else}}
+        ...regular markup for a post...
+    {{/has}}
+{{/post}}
+```
+{% endraw %}
+
+For documentation on further theme development techniques see [theme documentation](https://themes.ghost.org/).

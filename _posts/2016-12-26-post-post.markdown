@@ -1,0 +1,106 @@
+---
+layout: post
+title: Sinatra with Bower on Heroku
+date: '2016-12-26 20:25:12'
+---
+
+[Sinatra](http://www.sinatrarb.com/) is a lightweight web framework using Ruby which is easy to get up and running quickly, particularly if you don’t need the models and data persistence part.
+
+[Bower](http://bower.io/) is the de facto way to manage client side dependencies such as [Bootstrap](http://getbootstrap.com/) and [jQuery](https://jquery.com/).
+
+[Heroku](https://www.heroku.com/) is an app hosting service which integrates well with [git](https://git-scm.com/) and the command line.
+
+### Use Node.js to run Bower
+
+When you deploy your application to Heroku, it detects which kind of application you have by the existence of certain core files and builds it accordingly. A Sinatra application will be detected as such (by the existence of a Gemfile) and the default ruby build pack used. To run Bower on Heroku, you need to use node. So your app also needs to have node configuration files (the package.json) and you need to additionally add the node build pack. This seems frustrating since you won’t be using the node server part at all, but so far this seems to be the only way of doing things. 
+
+A step by step guide follows.
+
+## Skeleton Sinatra app
+
+* Make a directory for your application and `cd` into it.
+* Create a `Gemfile` for Sinatra with the following (update ruby version as required):
+```
+ruby '2.3.0'
+source 'https://rubygems.org'
+gem 'sinatra'
+```
+* Run `bundler`
+* Create an `app.rb` for Sinatra
+```
+require 'sinatra'
+get '/' do
+    "Hello World"
+end
+```
+* Create a `config.ru` to run Sinatra (required by Heroku)
+```
+require './app'
+run Sinatra::Application
+```
+
+## Test Sinatra app
+
+Test everything works ok locally without bower.
+
+* Run `ruby app.rb` to start the server
+* Browse to http://localhost:4567 to check the "Hello World" message is displayed
+* Ctrl-C to stop the server
+
+## Add Bower (via Node)
+
+* Run `npm init` to initialise Node thereby creating the Node.js `package.json`. The defaults for everything will work fine (the entry point default of `index.js` is not important since we won’t be running the node server)
+* Run `npm install bower --save` to install Bower locally. Using the `--save` flag ensures the `package.json` is updated to include Bower as a dependency. The `node_modules` directory will be created in the application root containing the bower binaries.
+* Run `bower init` to initialise bower thereby creating the `bower.json` config file. Again, defaults for everything are fine. (If you don't have bower installed globally you'll need to use the local bower `node_modules/bower/bin/bower init`)
+* By default Sinatra looks for static files in the `.public` directory. By default Bower installs all client side libraries to the `bower_components` directory. Either Sinatra, Bower or both need to be updated to ensure Sinatra serves these files correctly.
+    - Update Sinatra to reference a different directory for static files e.g. `public` by adding the following line to the `app.rb`: `set :public_folder, File.dirname(__FILE__) + '/public'`
+    - Update Bower to install dependencies to a different directory e.g. `public/lib` by adding a `.bowerrc` file with the following:
+      `{ "directory": "public/lib" }`
+* Install client side dependencies via Bower ensuring you add the flag to update the `bower.json` config file e.g. to install Bootstrap run `bower install bootstrap -save`
+
+## Add Bower dependency to Sinatra
+
+Modify the Sinatra application to actually use something managed by Bower. The example here uses Bootstrap.
+
+* Update `app.rb` to serve a template file
+
+```
+get '/' do
+    content_type 'html'
+    erb :index
+end
+```
+* Add a `views` directory and an `index.erb` file
+* Copy the Bootstrap starter template to the index.erb from http://getbootstrap.com/getting-started/#template
+* Update the urls to the bootstrap artefacts to reference the correct place e.g. `lib/bootstrap/dist/css/bootstrap.min.css`
+
+## Test Sinatra app (again)
+
+Test everything works ok locally with bower.
+
+* Run `ruby app.rb` to start the server
+* Browse to http://localhost:4567 to check the template is displayed and the local browser is loading the bower dependencies without issues
+* Ctrl-C to stop the server
+
+## Initialise git repo
+
+* Run `git init` to initialise a repo
+* Create a `.gitignore` file with the `node_modules` folder and `public` folder listed
+* Run `git add .` to add all files
+* Run `git commit -m 'Initial commit'`
+
+## Configure and push to Heroku
+
+* Run `heroku create` to initialise heroku for this application
+* Run `git push heroku master` to push source and build
+* There should be a message that only one build pack was used, most likely ruby. Check this using `heroku buildpacks`. To add the nodejs build pack use `heroku buildpacks:add --index 1 heroku/nodejs`. This will add the build pack in the first position. Ruby needs to be in the last position to actually run the app. (See https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app for reference.)
+* Push again to trigger another build, this time with both build packs.
+* Bower will not have been triggered, so finally update package.json to run this by adding: 
+
+```
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+```
+* Commit, push and bower should now be triggered
+* `heroku open` to test the deployed application is working
